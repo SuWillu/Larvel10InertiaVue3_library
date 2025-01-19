@@ -2,25 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 use App\Models\Book;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
 
 class SearchBookController extends Controller
 {	
-	public function index()
-	{
+	public function index(Request $request)
+	{		
+		$books = DB::table('books');
+			if($request->input('search')) {
+				$books = $books->where('title', 'like', "%{$request->input('search')}%");
+			}
+			if(($request->has('available'))) {
+				$books = $books->where('available', $request->input('available'));
+			}
+			if($request->input('column')) {
+				$books = $books->orderBy($request->input('column'), $request->input('direction'));
+			}
+			$books = $books->get();			
+				
 		return Inertia::render('Search', [
-			'books' => Book::query()
-				->when(Request::input('search'), function ($query, $search) {
-					$query->where('title', 'like', "%{$search}%");
-				})->when(Request::input('available'), function ($query, $available) {
-					$query->where('available', '=', "{$available}");
-				})->when(Request::has('column'), function ($query){
-					$query->orderBy(Request::input('column'), Request::input('direction'));
-				})
-				->get(),
-			'filters'=>Request::only(['search', 'column', 'direction'])			
+			'books' => $books,
+			'filters'=>$request->only(['search', 'column', 'direction', 'available'])			
 		]);		
 	}
 }

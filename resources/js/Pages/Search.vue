@@ -50,7 +50,7 @@
 					<td>{{ book.publication_date }}</td>
 					<td>{{ book.category }}</td>
 					<td>{{ book.page_count }}</td>
-					<td>{{ book.available }}</td>
+					<td>{{ book.available ? "Yes" : "No"  }}</td>
 					<td>
 						<Link :href="`/book/${ book.id }`" class="button showbutton">Show</Link>
 					</td>
@@ -100,7 +100,7 @@ import {throttle, pickBy} from 'lodash';
 					remember: "forget",
 				}
 			);
-		console.log('route: ' + queryRoute);
+		
 			router.get(
 				queryRoute,
 				{},
