@@ -25,3 +25,5 @@ resolve: {
 in app.js add:
 import { ZiggyVue } from 'ziggy-js';
  .use(ZiggyVue)
+
+To start, click on Login. There is a link to Sign Up on that page.
