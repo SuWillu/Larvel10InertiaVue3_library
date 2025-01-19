@@ -174,3 +174,32 @@ label {
 	color: #1b0799;
 	font-weight:500;
 }
+
+.arrows {
+	float: right;
+}
+
+.arrow-up {
+	width: 4px;
+	height: 4px;
+	border-left: 2px solid;
+	border-top: 2px solid;
+	transform: rotate(45deg) skew(10deg, 10deg);
+}
+
+.arrow-down{
+	width: 4px;
+	height: 4px;
+	border-left: 2px solid;
+	border-top: 2px solid;
+	transform: rotate(225deg) skew(10deg, 10deg);
+}
+
+.row {
+	display: flex;
+}
+
+.pad-rt {
+	margin-right: 5px;
+}
+		

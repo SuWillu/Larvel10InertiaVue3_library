@@ -22,10 +22,10 @@
 				<tr>
 					<td class="header-item">ISBN</td>
 					<td class="header-item cursor-pointer" @click="sortBy('title')">
-						<span>Title</span>
+						<div class="row"><span class="pad-rt">Title</span><div class="arrows"><div class="arrow-up" /><div class="arrow-down" /></div></div>
 					</td>
 					<td class="header-item cursor-pointer" @click="sortBy('author')">
-						<span>Author</span>
+						<div class="row"><span class="pad-rt">Author</span><div class="arrows"><div class="arrow-up" /><div class="arrow-down" /></div></div>
 					</td>
 					<td class="header-item">Description</td>
 					<td class="header-item">Cover Image</td>
@@ -34,7 +34,7 @@
 					<td class="header-item">Category</td>
 					<td class="header-item">Page Count</td>
 					<td class="header-item cursor-pointer" @click="sortBy('available')">
-						<span>Available</span>
+						<div class="row"><span class="pad-rt">Available</span><div class="arrows"><div class="arrow-up" /><div class="arrow-down" /></div></div>
 					</td>
 					<td class="header-item">Buttons</td>
 				</tr>
