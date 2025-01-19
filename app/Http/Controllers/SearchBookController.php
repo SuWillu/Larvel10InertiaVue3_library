@@ -27,7 +27,7 @@ class SearchBookController extends Controller
 			if($request->input('column')) {
 				$books = $books->orderBy($request->input('column'), $request->input('direction'));
 			}
-			$books = $books->get();			
+			$books = $books->orderByRaw('RAND()')->take(5)->get();	
 				
 		return Inertia::render('Search', [
 			'books' => $books,
