@@ -15,6 +15,12 @@ class SearchBookController extends Controller
 			if($request->input('search')) {
 				$books = $books->where('title', 'like', "%{$request->input('search')}%");
 			}
+			if($request->input('titlef')) {
+				$books = $books->where('title', 'like', "{$request->input('titlef')}%");
+			}
+			if($request->input('authorf')) {
+				$books = $books->where('author', 'like', "{$request->input('authorf')}%");
+			}
 			if(($request->has('available'))) {
 				$books = $books->where('available', $request->input('available'));
 			}
@@ -25,7 +31,7 @@ class SearchBookController extends Controller
 				
 		return Inertia::render('Search', [
 			'books' => $books,
-			'filters'=>$request->only(['search', 'column', 'direction', 'available'])			
+			'filters'=>$request->only(['search', 'titlef', 'authorf', 'column', 'direction', 'available'])			
 		]);		
 	}
 }

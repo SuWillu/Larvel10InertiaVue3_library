@@ -7,14 +7,23 @@
 	</header>
 	<div class="book_create">		
 		<form @submit.prevent="form.get(`/search`)">
-			<label for="search">Search</label>
-			<input name="search" placeholder="Search..." type="text" v-model="columnFilters.search" class="search" />
-			<label for="available">Available</label>
-			<select name="available" v-model="columnFilters.available" @onChange="event.target.value">		
-			  <option selected :value="undefined">all</option>
-			  <option value="1">available</option>
-			  <option value="0">not available</option>
-			</select>
+			<div class="filtersrow">
+				<label for="search">Search</label><br /><br />
+				<input name="search" placeholder="Search..." type="text" v-model="columnFilters.search" class="filters" />
+				
+				<label for="titlef">Filter by Title</label><br /><br />
+				<input name="titlef" placeholder="Title starts with..." type="text" v-model="columnFilters.titlef"  class="filters"/>
+				
+				<label for="authorf">Filter by Author</label><br /><br />
+				<input name="authorf" placeholder="Author starts with..." type="text" v-model="columnFilters.authorf" class="filters" />
+				
+				<label for="available">Available</label><br /><br />
+				<select name="available" v-model="columnFilters.available" @onChange="event.target.value" class="filters">		
+				  <option selected :value="undefined">all</option>
+				  <option value="1">available</option>
+				  <option value="0">not available</option>
+				</select>
+			</div>
 		</form>
 	
 		<table class="table table-striped table-bordered">
@@ -75,6 +84,8 @@ import {throttle, pickBy} from 'lodash';
 	const columnFilters = reactive({
 		search: props.filters.search,
 		available: props.filters.available,
+		titlef: props.filters.titlef,
+		authorf: props.filters.authorf,
 		column: props.filters.column,
 		direction: props.filters.direction
 	});
@@ -85,6 +96,8 @@ import {throttle, pickBy} from 'lodash';
 	
 	let search = ref(props.filters.search);	
 	let available = ref(props.filters.available);
+	let titlef = ref(props.filters.titlef);
+	let authorf = ref(props.filters.authorf);
 	
 	function sortBy(column) {
 		columnFilters.column = column;

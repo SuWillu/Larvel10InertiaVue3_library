@@ -166,8 +166,15 @@ label {
 	cursor: pointer;
 }
 
-.search {
+.filtersrow {
+	display: flex;
+	margin-left: 20px;
+	width: 100%;
+}
+
+.filters {
 	margin-right: 10px;
+	height: 16px;
 }
 
 .msg {
