@@ -15,8 +15,9 @@
 			<p>First published: {{ book.publication_date }}</p>
 			<p>Category: {{ book.category }}</p>
 			<p>{{ book.page_count }} Pages</p>
+			<p>Available: {{ book.available ? "Yes" : "No" }}</p>
 			<div v-if="$page.props.auth.user && $page.props.auth.user.role_id == 2">
-				<Link :href="`/checkout/${ book.id }`" class="button editbutton" @click="checkoutBook">Checkout Book</Link><br /><br />
+				<Link :href="`/checkout/${ book.id }`" class="button editbutton" v-if="book.available == true" @click="checkoutBook">Checkout Book</Link><br /><br />
 				<div v-bind="message" class="msg">Books are due 5 days after checkout.</div>
 			</div>
 		</div>
