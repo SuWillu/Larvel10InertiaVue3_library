@@ -9,7 +9,6 @@ use Inertia\Inertia;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use Illuminate\Support\Facades\Auth;
-use Log;
 
 class BookController extends Controller
 {

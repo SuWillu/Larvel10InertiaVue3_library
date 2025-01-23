@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\DB;
 
 class SearchBookController extends Controller
 {	
