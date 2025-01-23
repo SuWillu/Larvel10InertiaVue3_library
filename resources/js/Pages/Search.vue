@@ -45,7 +45,8 @@
 					<td class="header-item cursor-pointer" @click="sortBy('available')">
 						<div class="row"><span class="pad-rt">Available</span><div class="arrows"><div class="arrow-up" /><div class="arrow-down" /></div></div>
 					</td>
-					<td class="header-item">Buttons</td>
+					<td class="header-item">Average Rating</td>
+					<td class="header-item">Actions</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,6 +61,7 @@
 					<td>{{ book.category }}</td>
 					<td>{{ book.page_count }}</td>
 					<td>{{ book.available ? "Yes" : "No"  }}</td>
+					<td>{{ book.reviews_avg_stars }}</td>
 					<td>
 						<Link :href="`/book/${ book.id }`" class="button showbutton">Show</Link>
 					</td>

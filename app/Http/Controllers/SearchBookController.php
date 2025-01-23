@@ -11,7 +11,7 @@ class SearchBookController extends Controller
 {	
 	public function index(Request $request)
 	{		
-		$books = DB::table('books');
+		$books = Book::select()->withAvg('reviews', 'stars');
 			if($request->input('search')) {
 				$books = $books->where('title', 'like', "%{$request->input('search')}%");
 			}
@@ -27,7 +27,7 @@ class SearchBookController extends Controller
 			if($request->input('column')) {
 				$books = $books->orderBy($request->input('column'), $request->input('direction'));
 			}
-			$books = $books->orderByRaw('RAND()')->take(5)->get();	
+			$books = $books->orderByRaw('RAND()')->take(10)->get();	
 				
 		return Inertia::render('Search', [
 			'books' => $books,

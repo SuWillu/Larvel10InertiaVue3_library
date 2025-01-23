@@ -17,6 +17,7 @@
 						<td class="header-item">Category</td>
 						<td class="header-item">Page Count</td>
 						<td class="header-item">Available</td>
+						<td class="header-item">Average Stars</td>
 						<td class="header-item"></td>
 					</tr>
 				</thead>
@@ -32,6 +33,7 @@
 						<td>{{ book.category }}</td>
 						<td>{{ book.page_count }}</td>
 						<td>{{ book.available }}</td>
+						<td>{{ book.reviews_avg_stars }}</td>
 						<td>
 							<Link :href="`/book/${ book.id }`" class="button showbutton" v-if="$page.props.auth.user">Show</Link>
 							<div v-if="$page.props.auth.user && $page.props.auth.user.role_id == 1">
