@@ -50,7 +50,7 @@
 				<div v-if="form.errors.page_count">{{ form.errors.page_count }}</div>
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary" :disabled="form.processing">Submit</button>
 			</div>
 		</form>
 	</div>

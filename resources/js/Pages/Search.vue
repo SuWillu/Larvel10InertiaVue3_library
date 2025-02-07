@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<nav>
-			<Link href="/logout" class="button editbutton logout" v-if="$page.props.auth.user">Logout</Link>
+			<Link href="/logout" method="post" class="button editbutton logout" v-if="$page.props.auth.user">Logout</Link>
 			<Link href="/login" class="button editbutton logout" v-else="$page.props.auth.user">Login</Link>
 		</nav>
 	</header>

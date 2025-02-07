@@ -25,12 +25,12 @@ class StoreBookRequest extends FormRequest
             'isbn' => 'required|max:17',
 			'title' => 'required|max:300',
 			'author' => 'required|max:300',
-			'description' => 'max:1000',
-			'cover_img' => 'max:300',
+			'description' => 'required|max:1000',
+			'cover_img' => 'required|max:300',
 			'publisher' => 'required|max:300',
 			'publication_date' => 'required|date', 
 			'category' => 'required|max:250',
-			'page_count' => 'numeric'
+			'page_count' => 'required|numeric'
         ];
     }
 }

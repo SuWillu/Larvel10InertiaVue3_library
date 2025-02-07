@@ -28,7 +28,7 @@ Route::post('/signup', [UserController::class, 'postSignup']);
 	
 Route::get('/login', [UserController::class, 'getLogin']);
 Route::post('/login', [UserController::class, 'postLogin']);
-Route::get('/logout', [UserController::class, 'getLogout']);	
+Route::post('/logout', [UserController::class, 'getLogout']);	
 
 Route::get('/', [BookController::class, 'index']);
 Route::get('/book/create', [BookController::class, 'create']);
