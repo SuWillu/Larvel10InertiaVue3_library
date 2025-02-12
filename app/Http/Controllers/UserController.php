@@ -13,6 +13,9 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
+	/**
+	* Show the Signup form.	
+	*/
 	public function getSignup(){
 		
 		return Inertia::render('Signup',[
@@ -20,6 +23,9 @@ class UserController extends Controller
 		]);
 	}
 	
+	/**
+	* Store the newly created User.	
+	*/
 	public function postSignup(StoreUserRequest $request){
 		
 		$data = $request->validated();
@@ -35,10 +41,16 @@ class UserController extends Controller
 		return Inertia::render('Login');
 	}
 	
+	/**
+	* Show the login form.
+	*/
 	public function getLogin(){
 		return Inertia::render('Login');
 	}
 	
+	/**
+	* Process a user logging in.
+	*/
 	public function postLogin(Request $request){
 		$this->validate($request, [
 			'email' => 'required',

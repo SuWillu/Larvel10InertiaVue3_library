@@ -8,6 +8,16 @@ use Inertia\Inertia;
 
 class SearchBookController extends Controller
 {	
+	/**
+	* Display a listing of books
+	*
+	* @queryParam search string The search string.
+	* @queryParam titlef string The title to search for.
+	* @queryParam authorf string The author to search for.
+	* @queryParama available boolean Whether the book is available.
+	* @queryParam column string The column to sort by.
+	* @queryParam direction string The direction by which to sort the above column. Enum: asc, desc. 
+	*/
 	public function index(Request $request)
 	{		
 		$books = Book::select()->withAvg('reviews', 'stars');
