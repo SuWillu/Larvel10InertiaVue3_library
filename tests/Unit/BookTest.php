@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-//use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
 
 class BookTest extends TestCase
@@ -12,6 +11,6 @@ class BookTest extends TestCase
      */
     public function test_that_home_page_returns_a_successful_response(): void
     {
-        $this->get('/')->assertStatus(200);		
+        $this->get('/')->assertStatus(200);
     }
 }
